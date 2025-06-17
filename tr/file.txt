@@ -1,0 +1,5 @@
+This file contains UPPER CASE and lower case letters.
+It also has digits that are used in
+- phone numbers such as 555-555-5555
+- credit card numbers such as 1234 1234 1234 1234
+and punctuations such as ,.;"'!@#$%^&*()[]

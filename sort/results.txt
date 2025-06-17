@@ -1,0 +1,5 @@
+ruit color
+blueberry blue
+grape purple
+apple red
+banana yellow
