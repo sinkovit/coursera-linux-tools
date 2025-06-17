@@ -1,0 +1,9 @@
+apple
+apple
+Banana
+Banana
+Grape
+Grape
+orange
+peach
+pear
