@@ -19,7 +19,7 @@ tail -n +5 file1.txt
 # Demonstrating verbose (-v) and quiet (-q) modes
 head -v -n 3 file1.txt
 head -q -n 3 file1.txt
-head -v 3 file*.txt
+head -v -n 3 file*.txt
 head -q -n 3 file*.txt
 
 # Writing lines 6-10 to stdout using head and tail
