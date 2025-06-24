@@ -1,0 +1,3 @@
+The file colors.txt contains a list of colors,
+while shps.txt contains a list of shapes.
+Here is a string: abctxt
