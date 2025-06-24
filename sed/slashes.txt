@@ -1,0 +1,2 @@
+/usr/local/lib/python3.12/
+/usr/local/lib/docker/
