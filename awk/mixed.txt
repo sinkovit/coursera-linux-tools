@@ -1,0 +1,5 @@
+Bob 432 1.2
+Susan 8127 2.34
+Marty 12045 3.456
+Mary 17 4.5678
+Christopher 85 5.67890
