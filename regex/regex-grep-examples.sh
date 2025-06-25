@@ -79,8 +79,8 @@ grep -E '^pear|pear$' fruit.txt
 grep -E '^pear|pear$' fruit.txt
 
 # Escaping special characters
-grep -E '[[:alpha:]]+\*[[:alpha:]]+' spc.txt
-grep -E '[[:alpha:]]+[*][[:alpha:]]+' spc.txt
+grep -E '[[:alnum:]]+\*[[:alnum:]]+' spc.txt
+grep -E '[[:alnum:]]+[*][[:alnum:]]+' spc.txt
 grep -E '[{(][0-9]+[})]' spc.txt
 grep -E '\{[0-9]+\}|\([0-9]+\)' spc.txt
 
@@ -115,3 +115,28 @@ grep -E 'p[[:lower:]]*r' fruit.txt
 cat lazy.txt
 grep -E 'A.*B' lazy.txt
 grep -P 'A.*?B' lazy.txt
+
+# PCRE character classes
+grep -E '[[:alnum:]]+[*][[:alnum:]]+' spc.txt
+grep -P '\w+[*]\w+' spc.txt
+grep -E '\{[0-9]+\}|\([0-9]+\)' spc.txt
+grep -P '\{\d+\}|\(\d+\)' spc.txt
+
+# Lookahead and lookbehind
+grep -P 'foo(?=bar)' foobar.txt 
+grep -P 'foo(?!bar)' foobar.txt
+grep -P '(?<=foo)bar' foobar.txt
+grep -P '(?<!foo)bar' foobar.txt
+
+grep -Po '\w+\.txt' dot.txt
+grep -Po '\w+(?=\.txt)' dot.txt
+
+# Capture groups and back references
+cat repeat.txt
+grep -P '\b(\w+)\s+\1\b' repeat.txt
+grep -P '\b(\w+)\s+\1\s+\1\b' repeat.txt
+grep -P '\b(\w+).*\1\b' repeat.txt
+grep -P '\b(\w+).*?\1\b' repeat.txt
+grep -P '\b(\w+)\s+(\w+)\s+\2\s+\1\b' repeat.txt
+grep -P '\b(\w+)\s+((?!\1)\w+)\s+\2\s+\1\b' repeat.txt
+
