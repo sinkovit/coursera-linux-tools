@@ -1,0 +1,9 @@
+12345 is valid zip code
+zip code 12345 is valid
+this zip code 12345, is valid
+valid zip code 12345
+12345
+123456 is too long
+too short: 1234
+zip code a12345 is invalid
+zip code 12345b, is invalid

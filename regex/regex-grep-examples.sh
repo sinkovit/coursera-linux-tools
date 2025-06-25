@@ -80,5 +80,38 @@ grep -E '^pear|pear$' fruit.txt
 
 # Escaping special characters
 grep -E '[[:alpha:]]+\*[[:alpha:]]+' spc.txt
+grep -E '[[:alpha:]]+[*][[:alpha:]]+' spc.txt
 grep -E '[{(][0-9]+[})]' spc.txt
 grep -E '\{[0-9]+\}|\([0-9]+\)' spc.txt
+
+# ----- regex word boundaries -----
+
+# Naive approach to finding 5-digit zip codes
+cat zip.txt
+grep -E '[0-9]{5}' zip.txt
+
+# An improved solution in four parts
+grep -E '^[0-9]{5}[[:punct:][:space:]]' zip.txt
+grep -E '[[:punct:][:space:]][0-9]{5}[[:punct:][:space:]]' zip.txt
+grep -E '[[:punct:][:space:]][0-9]{5}$' zip.txt
+grep -E '^[0-9]{5}$' zip.txt
+
+# An improved solution in four parts w/ -o to emphasize matches
+grep -Eo '^[0-9]{5}[[:punct:][:space:]]' zip.txt
+grep -Eo '[[:punct:][:space:]][0-9]{5}[[:punct:][:space:]]' zip.txt
+grep -Eo '[[:punct:][:space:]][0-9]{5}$' zip.txt
+grep -Eo '^[0-9]{5}$' zip.txt
+
+# Using word boundaries
+grep -E '\<[0-9]{5}\>' zip.txt
+
+# ----- Perl compatible regular expressions -----
+
+# greedy and lazy matching
+grep -E 'p.*r' fruit.txt
+grep -E '\<p.*r\>' fruit.txt
+grep -E 'p[[:lower:]]*r' fruit.txt
+
+cat lazy.txt
+grep -E 'A.*B' lazy.txt
+grep -P 'A.*?B' lazy.txt

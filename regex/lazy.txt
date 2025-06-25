@@ -1,0 +1,4 @@
+AaaaBcccBcccAcccBcccBcccA
+AaaaBcccBcccBcccBcccBcccA
+AaaaAcccBcccAcccBcccBcccA
+AaaaBcccBcccAcccAcccBcccB
