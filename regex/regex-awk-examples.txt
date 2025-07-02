@@ -1,0 +1,30 @@
+# demonstrating that regex features from grep also work with awk
+awk '/[bB]anana/' fruit.txt
+awk '/[bdrw]ash/' ash.txt
+awk '/[^c-r]ash/' ash.txt
+awk '/ab+c/' abc.txt
+awk '/[[:alpha:]]{6}[.]txt/' dot.txt
+awk '/^pear|pear$/' fruit.txt
+awk '/[[:alnum:]]+\*[[:alnum:]]+/' spc.txt
+awk '/\{[0-9]+\}|\([0-9]+\)/' spc.txt
+awk '/\<[0-9]{5}\>/' zip.txt
+
+grep -E '[bB]anana' fruit.txt
+grep -E '[bdrw]ash' ash.txt
+grep -E '[^c-r]ash' ash.txt
+grep -E 'ab+c' abc.txt
+grep -E '[[:alpha:]]{6}[.]txt' dot.txt
+grep -E '^pear|pear$' fruit.txt
+grep -E '[[:alnum:]]+\*[[:alnum:]]+' spc.txt
+grep -E '\{[0-9]+\}|\([0-9]+\)' spc.txt
+grep -E '\<[0-9]{5}\>' zip.txt
+
+# Some more useful examples of regexes with awk
+awk '/meatloaf/ {print $1, $3, $4, $6}' people3.txt
+awk '$3 ~ /meatloaf/ {print $1, $3, $4, $6}' people3.txt
+awk '$4 ~ /meatloaf/ {print $1, $3, $4, $6}' people3.txt
+awk '$0 ~ /meatloaf/ {print $1, $3, $4, $6}' people3.txt
+
+awk '$0 !~ /meatloaf/ {print $1, $3, $4, $6}' people3.txt
+awk '$3 !~ /meatloaf/ {print $1, $3, $4, $6}' people3.txt
+awk '$4 !~ /meatloaf/ {print $1, $3, $4, $6}' people3.txt
