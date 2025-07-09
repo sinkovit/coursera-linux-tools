@@ -1,0 +1,31 @@
+# demonstrating that regex features from grep also work with sed
+sed -nE '/[bB]anana p/' fruit.txt
+sed -nE '/[bdrw]ash p/' ash.txt
+sed -nE '/[^c-r]ash p/' ash.txt
+sed -nE '/ab+c p/' abc.txt
+sed -nE '/[[:alpha:]]{6}[.]txt p/' dot.txt
+sed -nE '/^pear|pear$ p/' fruit.txt
+sed -nE '/[[:alnum:]]+\*[[:alnum:]]+ p/' spc.txt
+sed -nE '/\{[0-9]+\}|\([0-9]+\) p/' spc.txt
+sed -nE '/\<[0-9]{5}\> p/' zip.txt
+
+grep -E '[bB]anana' fruit.txt
+grep -E '[bdrw]ash' ash.txt
+grep -E '[^c-r]ash' ash.txt
+grep -E 'ab+c' abc.txt
+grep -E '[[:alpha:]]{6}[.]txt' dot.txt
+grep -E '^pear|pear$' fruit.txt
+grep -E '[[:alnum:]]+\*[[:alnum:]]+' spc.txt
+grep -E '\{[0-9]+\}|\([0-9]+\)' spc.txt
+grep -E '\<[0-9]{5}\>' zip.txt
+
+# substitutions with regular expressions
+sed -E 's/[bB]anana/XXXXX/' fruit.txt
+sed -E 's/[bdrw]ash/XXXXX/' ash.txt
+sed -E 's/[^c-r]ash/XXXXX/' ash.txt
+sed -E 's/ab+c/XXXXX/' abc.txt
+sed -E 's/[[:alpha:]]{6}[.]txt/XXXXX/' dot.txt
+sed -E 's/^pear|pear$/XXXXX/' fruit.txt
+sed -E 's/[[:alnum:]]+\*[[:alnum:]]+/XXXXX/' spc.txt
+sed -E 's/\{[0-9]+\}|\([0-9]+\)/XXXXX/' spc.txt
+sed -E 's/\<[0-9]{5}\>/XXXXX/' zip.txt
