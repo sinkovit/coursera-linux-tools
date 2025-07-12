@@ -20,12 +20,38 @@ grep -E '\{[0-9]+\}|\([0-9]+\)' spc.txt
 grep -E '\<[0-9]{5}\>' zip.txt
 
 # substitutions with regular expressions
-sed -E 's/[bB]anana/XXXXX/' fruit.txt
-sed -E 's/[bdrw]ash/XXXXX/' ash.txt
-sed -E 's/[^c-r]ash/XXXXX/' ash.txt
-sed -E 's/ab+c/XXXXX/' abc.txt
-sed -E 's/[[:alpha:]]{6}[.]txt/XXXXX/' dot.txt
-sed -E 's/^pear|pear$/XXXXX/' fruit.txt
-sed -E 's/[[:alnum:]]+\*[[:alnum:]]+/XXXXX/' spc.txt
-sed -E 's/\{[0-9]+\}|\([0-9]+\)/XXXXX/' spc.txt
-sed -E 's/\<[0-9]{5}\>/XXXXX/' zip.txt
+sed -E 's/[bB]anana/**?**/' fruit.txt
+sed -E 's/[bdrw]ash/**?**/' ash.txt
+sed -E 's/[^c-r]ash/**?**/' ash.txt
+sed -E 's/ab+c/**?**/' abc.txt
+sed -E 's/[[:alpha:]]{6}[.]txt/**?**/' dot.txt
+sed -E 's/^pear|pear$/**?**/' fruit.txt
+sed -E 's/[[:alnum:]]+\*[[:alnum:]]+/**?**/' spc.txt
+sed -E 's/\{[0-9]+\}|\([0-9]+\)/**?**/' spc.txt
+sed -E 's/\<[0-9]{5}\>/**?**/' zip.txt
+
+sed -E 's/banana/**?**/' fruit2.txt
+sed -E 's/banana/**?**/I' fruit2.txt
+sed -E 's/banana/**?**/' repeat.txt
+sed -E 's/banana/**?**/g' repeat.txt
+
+# backtracking
+cat repeat.txt
+sed -E 's/\<([a-z]+) \1\>/\1/' repeat.txt
+
+sed -E 's/\<([a-z]+) \1\>/**\1**/' repeat.txt
+sed -E 's/\<([a-z]+) \1\>/**\1**/g' repeat.txt
+sed -E 's/\<([a-z]+) \1 \1\>/***\1***/g' repeat.txt
+sed -E 's/\<([a-z]+) \1 \1 \1\>/****\1****/g' repeat.txt
+sed -E 's/\<([a-z]+) \1 \1 \1\>/****\1****/g; s/\<([a-z]+) \1 \1\>/***\1***/g; s/\<([a-z]+) \1\>/**\1**/g' repeat.txt
+
+cat ordered1.txt
+sed -E 's/([[:alnum:]]+) ([[:alnum:]]+)/\2 \1/' ordered1.txt
+awk '{t=$1; $1=$2; $2=t; for(i=1;i<=NF;i++) printf "%s%s",$i,(i<NF?OFS:ORS)}' ordered1.txt
+
+cat ordered2.txt
+sed -E 's/([[:alnum:]]+) ([[:alnum:]]+)/\2 \1/' ordered2.txt
+sed -E 's/([[:alnum:]]+)([[:space:]]+)([[:alnum:]]+)/\3\2\1/' ordered2.txt
+
+cat ordered3.txt
+sed -E 's/([[:alnum:]]+)([[:space:][:punct:]]+)([[:alnum:]]+)/\3\2\1/' ordered3.txt
