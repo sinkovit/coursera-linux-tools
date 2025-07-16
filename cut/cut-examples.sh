@@ -2,8 +2,6 @@
 cat letters.txt
 cut -c 5,10,15 letters.txt
 cut -c 5,10-15,17 letters.txt
-cat extended.txt
-cut -c 4-9 extended.txt
 
 # cut by field
 cat tab.tsv
