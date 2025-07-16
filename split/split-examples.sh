@@ -34,7 +34,7 @@ rm -f part_*
 # Increasing the suffix width
 seq 10000 > seq.txt
 split -l 10 seq.txt part_
-echo $?
+ls
 rm -f part_*
 split -l 10 -a 4 seq.txt part_
 wc -l part_* seq.txt
