@@ -1,6 +1,9 @@
 # Colorize grep output
 alias grep='grep --color=auto'
 
+# Mac Homebrew users
+# alias grep='/usr/local/bin/ggrep --color=auto'
+
 # grep basic functionality
 cat fruit.txt
 grep banana fruit.txt
