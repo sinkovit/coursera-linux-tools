@@ -10,9 +10,9 @@ sort -k2 snacks.txt
 sort -k3 snacks.txt
 
 # Numeric and reverse sorts
-sort -k2 -n snacks.txt
-sort -k2 -n -r snacks.txt
-sort -k2,2 -n -r snacks.txt
+sort -k2n snacks.txt
+sort -k2nr snacks.txt
+sort -k2nr,2 snacks.txt
 
 # Sorting on multiple columnst
 sort -k3,3 -k1,1 -k2,2 produce.txt
