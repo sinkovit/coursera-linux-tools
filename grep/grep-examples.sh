@@ -9,6 +9,7 @@ cat fruit.txt
 grep banana fruit.txt
 grep -i banana fruit.txt
 grep banana fruit*.txt
+grep 'orange lemon' fruit.txt
 
 # Forcing and supressing printing file name
 grep -H banana fruit.txt
