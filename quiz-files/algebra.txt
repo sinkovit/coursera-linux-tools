@@ -1,0 +1,5 @@
+a+b=b+a
+(a+b)*c=a*c+b*c
+(a+b)+(c+d)=(a+c)+(b+d)
+(a*b)*c=a*(b*c)
+(a+b)*(c+d)=a*c+a*d+b*c+b*d
