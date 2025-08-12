@@ -1,0 +1,8 @@
+This file contains "quoted strings". We're going to use
+lazy matching to find the "text" that appears between "quotes".
+As you can see "this" gets a "little" complicated when
+"there are" multiple "sets of quotes on" a line.
+I'm adding a "few" more "lines" with "quoted" strings
+"just" to "make things" a "little" "more" "interesting",
+"thereby" making "it" "harder" to "look" at the file
+"and" count all the "quoted" "strings".
