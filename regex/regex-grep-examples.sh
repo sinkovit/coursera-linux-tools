@@ -107,6 +107,7 @@ grep -Eo '^[0-9]{5}$' zip.txt
 
 # Using word boundaries
 grep -E '\<[0-9]{5}\>' zip.txt
+grep -Eo '\<[[:alnum:]]+[.]txt\>' dot.txt
 
 # ----- Perl compatible regular expressions -----
 
