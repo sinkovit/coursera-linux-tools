@@ -132,8 +132,8 @@ grep -P 'foo(?!bar)' foobar.txt
 grep -P '(?<=foo)bar' foobar.txt
 grep -P '(?<!foo)bar' foobar.txt
 
-grep -Po '\w+\.txt' dot.txt
-grep -Po '\w+(?=\.txt)' dot.txt
+grep -Po '\w+\.txt\b' dot.txt
+grep -Po '\w+(?=\.txt)\b' dot.txt
 
 # Capture groups and back references
 cat repeat.txt
