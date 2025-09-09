@@ -74,8 +74,8 @@ grep -E 'A(xyz)+B' grp.txt
 
 # Anchors
 cat fruit.txt
-grep '^pear' fruit.txt
-grep 'pear$' fruit.txt
+grep -E '^pear' fruit.txt
+grep -E 'pear$' fruit.txt
 grep -E '^pear|pear$' fruit.txt
 
 # Alternation

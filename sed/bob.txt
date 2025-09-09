@@ -1,5 +1,6 @@
 This is a story about Bob and how Bob decided to create a Coursera
-class to introduce students Linux text processing tools. Bob started
-working on this project in 2025 and was ready to launch his LINUX
+course to introduce students Linux text processing tools. Bob started
+working on this project and was ready to launch his LINUX
 course before the end of the year. Although Bob felt that he
-understood the linux tools, Bob needed help with the video production.
+understood the linux tools, Bob found that he learned a lot
+by teaching this course.

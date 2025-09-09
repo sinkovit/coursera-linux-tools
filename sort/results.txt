@@ -1,4 +1,4 @@
-ruit color
+fruit color
 blueberry blue
 grape purple
 apple red
