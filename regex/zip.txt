@@ -6,4 +6,5 @@ valid zip code 12345
 123456 is too long
 too short: 1234
 zip code a12345 is invalid
+zip code 12a45 is invalid
 zip code 12345b, is invalid
