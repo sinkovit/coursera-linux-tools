@@ -24,17 +24,10 @@ awk '$0 ~ /[bB]anana/' fruit.txt
 awk 'tolower($0) ~ /banana/' fruit.txt
 awk '$0 !~ /[bB]anana/' fruit.txt
 
-# regexes and exact matches
-cat people3.txt
-awk '/meatloaf/ {print $1, $3, $4, $6}' people3.txt
-awk '$3 == "meatloaf" {print $1, $3, $4, $6}' people3.txt
-awk '$4 == "meatloaf" {print $1, $3, $4, $6}' people3.txt
-awk '$3 ~ /meatloaf/ {print $1, $3, $4, $6}' people3.txt
-awk '$4 ~ /meatloaf/ {print $1, $3, $4, $6}' people3.txt
-awk '$3 ~ /^meatloaf$/ {print $1, $3, $4, $6}' people3.txt # Don’t do this
-awk '$3 !~ /meatloaf/ {print $1, $3, $4, $6}' people3.txt
-awk '$4 !~ /meatloaf/ {print $1, $3, $4, $6}' people3.txt
-
-# multiple regexes
-awk '$1 ~ /e/ && $2 ~ /^[abc]/ {print $1, $2, $3}' repeat.txt
-awk '$1 ~ /e/ || $2 ~ /^[abc]/ {print $1, $2, $3}' repeat.txt
+cat repeat.txt
+awk '$2 ~ /^[abc]/' repeat.txt
+grep -E '^[^[:space:]]+[[:space:]][abc].*' repeat.txt
+awk '$2 ~ /^[abc]/ {print $2, $4}' repeat.txt
+awk '$1 ~ /^[ab]/ && $2 ~ /[aeiou]$/' repeat.txt
+awk '$1 ~ /^[ab]/ || $2 ~ /[aeiou]$/' repeat.txt
+awk '$1 == "apple" && $2 ~ /[aeiou]$/' repeat.txt
