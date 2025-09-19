@@ -35,23 +35,19 @@ sed -E 's/banana/**?**/I' fruit2.txt
 sed -E 's/banana/**?**/' repeat.txt
 sed -E 's/banana/**?**/g' repeat.txt
 
-# backtracking
+# backreferences
 cat repeat.txt
-sed -E 's/\<([a-z]+) \1\>/\1/' repeat.txt
-
-sed -E 's/\<([a-z]+) \1\>/**\1**/' repeat.txt
-sed -E 's/\<([a-z]+) \1\>/**\1**/g' repeat.txt
-sed -E 's/\<([a-z]+) \1 \1\>/***\1***/g' repeat.txt
-sed -E 's/\<([a-z]+) \1 \1 \1\>/****\1****/g' repeat.txt
-sed -E 's/\<([a-z]+) \1 \1 \1\>/****\1****/g; s/\<([a-z]+) \1 \1\>/***\1***/g; s/\<([a-z]+) \1\>/**\1**/g' repeat.txt
+sed -E 's/\<([a-z]+)[[:space:]]+\1\>/**\1**/g' repeat.txt
+sed -E 's/\<([a-z]+)[[:space:]]+\1[[:space:]]+\1\>/***\1***/g' repeat.txt
+sed -E 's/\<([a-z]+)[[:space:]]+\1[[:space:]]+\1[[:space:]]+\1\>/****\1****/g' repeat.txt
 
 cat ordered1.txt
-sed -E 's/([[:alnum:]]+) ([[:alnum:]]+)/\2 \1/' ordered1.txt
+sed -E 's/([[:alnum:]]+)[[:space:]]+([[:alnum:]]+)/\2 \1/' ordered1.txt
 awk '{t=$1; $1=$2; $2=t; for(i=1;i<=NF;i++) printf "%s%s",$i,(i<NF?OFS:ORS)}' ordered1.txt
 
 cat ordered2.txt
-sed -E 's/([[:alnum:]]+) ([[:alnum:]]+)/\2 \1/' ordered2.txt
 sed -E 's/([[:alnum:]]+)([[:space:]]+)([[:alnum:]]+)/\3\2\1/' ordered2.txt
+sed -E 's/([[:alnum:]]+)[[:space:]]+([[:alnum:]]+)/\2 \1/' ordered2.txt
 
 cat ordered3.txt
 sed -E 's/([[:alnum:]]+)([[:space:][:punct:]]+)([[:alnum:]]+)/\3\2\1/' ordered3.txt
