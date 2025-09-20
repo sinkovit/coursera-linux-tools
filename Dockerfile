@@ -5,7 +5,7 @@ USER root
 
 # Restore man pages and install man-db
 RUN yes | unminimize && \
-    apt-get update && \
+    RUN apt-get update && apt-get install -y --only-upgrade <critical-packages> && rm -rf /var/lib/apt/lists/*  && \
     apt-get install -y man-db less vim && \
     rm -rf /var/lib/apt/lists/*
 
