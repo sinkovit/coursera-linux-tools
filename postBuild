@@ -1,0 +1,11 @@
+#!/bin/bash
+set -e
+
+# Enable full system (adds back man pages and docs)
+yes | unminimize
+
+# Update package list
+apt-get update
+
+# Install man-db so `man` works
+apt-get install -y man-db
