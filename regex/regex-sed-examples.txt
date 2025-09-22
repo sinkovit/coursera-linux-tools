@@ -9,6 +9,7 @@ sed -nE '/[[:alnum:]]+\*[[:alnum:]]+/ p' spc.txt
 sed -nE '/\{[0-9]+\}|\([0-9]+\)/ p' spc.txt
 sed -nE '/\<[0-9]{5}\>/ p' zip.txt
 
+# the grep equivalents
 grep -E '[bB]anana' fruit.txt
 grep -E '[bdrw]ash' ash.txt
 grep -E '[^c-r]ash' ash.txt
@@ -35,12 +36,16 @@ sed -E 's/banana/**?**/I' fruit2.txt
 sed -E 's/banana/**?**/' repeat.txt
 sed -E 's/banana/**?**/g' repeat.txt
 
-# backreferences
+# backreferences - replacing repeated words with single instance
 cat repeat.txt
 sed -E 's/\<([a-z]+)[[:space:]]+\1\>/**\1**/g' repeat.txt
 sed -E 's/\<([a-z]+)[[:space:]]+\1[[:space:]]+\1\>/***\1***/g' repeat.txt
 sed -E 's/\<([a-z]+)[[:space:]]+\1[[:space:]]+\1[[:space:]]+\1\>/****\1****/g' repeat.txt
 
+# backreferences - swapping first two fields where
+# (1) assuming delimiters are single spaces
+# (2) preserving spacing between first two words
+# (3) preserving space and punctuation between first two words
 cat ordered1.txt
 sed -E 's/([[:alnum:]]+)[[:space:]]+([[:alnum:]]+)/\2 \1/' ordered1.txt
 awk '{t=$1; $1=$2; $2=t; for(i=1;i<=NF;i++) printf "%s%s",$i,(i<NF?OFS:ORS)}' ordered1.txt
