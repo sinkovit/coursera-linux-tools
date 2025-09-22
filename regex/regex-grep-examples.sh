@@ -105,7 +105,7 @@ grep -Eo '[[:punct:][:space:]][0-9]{5}[[:punct:][:space:]]' zip.txt
 grep -Eo '[[:punct:][:space:]][0-9]{5}$' zip.txt
 grep -Eo '^[0-9]{5}$' zip.txt
 
-# Using word boundaries
+# Using word boundaries - the "easy" button
 grep -E '\<[0-9]{5}\>' zip.txt
 grep -Eo '\<[[:alnum:]]+[.]txt\>' dot.txt
 
