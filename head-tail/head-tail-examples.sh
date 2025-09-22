@@ -23,6 +23,7 @@ head -v -n 3 file*.txt
 head -q -n 3 file*.txt
 
 # Writing lines 6-10 to stdout using head and tail
+# Note - this can be done more cleanly using sed, which is covered later in course
 head -n 10 file1.txt | tail -n 5
 tail -n +6 file1.txt | head -n 5
 
