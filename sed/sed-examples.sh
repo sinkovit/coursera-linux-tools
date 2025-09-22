@@ -26,7 +26,8 @@ grep grape fruit.txt | sed 's/pear/orange/g'
 sed -n '/grape/ {s/pear/orange/g; p;}' fruit.txt
 diff <(sed 's/pear/orange/g' fruit.txt) <(sed '/grape/ s/pear/orange/g' fruit.txt)
 
-# Restricting output to matching lines (this probably doesn't do what you want)
+# Restricting output to matching lines where pattern only associated
+# with the substitution (probably not what you want)
 sed -n '/grape/ s/pear/orange/g; p;' fruit.txt
 
 # Printing selected line numbers
