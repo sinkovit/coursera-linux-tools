@@ -1,3 +1,7 @@
+# optionally create temporary directory to do the exercises
+mkdir TMP
+cd TMP
+
 # split basic functionality
 seq 10000 > seq.txt
 split seq.txt
@@ -40,7 +44,7 @@ split -l 10 -a 4 seq.txt part_
 wc -l part_* seq.txt
 rm -f part_*
 
-# Splitting into a specified number of files
+# Splitting into a specified number of files with -n
 # Be careful - may not do what you were expecting
 seq 10001 > seq.txt
 split -n 10 seq.txt
