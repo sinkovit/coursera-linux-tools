@@ -4,6 +4,7 @@ tr aeiou 1 < file.txt
 tr aeiou 12 < file.txt
 tr aeiou 11111 < file.txt
 tr aeiou 12222 < file.txt
+tr aeiou a[2*4] < file.txt
 
 # Translating lower-to-upper and upper-to-lower case
 tr a-z A-Z < file.txt
